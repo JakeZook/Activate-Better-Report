@@ -64,13 +64,9 @@ function App() {
 		formDataToSend.append("eveningPhoto", eveningPhoto);
 
 		try {
-			const response = await axios.post(
-				"http://localhost:5000/send-email",
-				formDataToSend,
-				{
-					headers: { "Content-Type": "multipart/form-data" }, // Required for file uploads
-				}
-			);
+			const response = await axios.post("/send-email", formDataToSend, {
+				headers: { "Content-Type": "multipart/form-data" }, // Required for file uploads
+			});
 			setResponseMsg(response.data.message);
 
 			if (response.data.success) {
