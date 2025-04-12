@@ -111,7 +111,7 @@ function App() {
 				onSubmit={handleSubmit}
 				className="flex flex-col gap-4 items-center justify-center"
 			>
-				<div className="flex flex-col gap-4 my-12">
+				<div className="flex flex-col gap-4 my-12 text-white">
 					<h1 className="text-center text-green-500">Morning</h1>
 					<div className="flex flex-col gap-4">
 						<input
@@ -158,7 +158,7 @@ function App() {
 						/>
 					</div>
 				</div>
-				<div className="flex flex-col gap-4 my-12">
+				<div className="flex flex-col gap-4 my-12 text-white">
 					<h1 className="text-center text-yellow-500">Mid</h1>
 					<input
 						type="text"
@@ -202,7 +202,7 @@ function App() {
 						className="border p-4 rounded w-full max-w-xl text-lg"
 					/>
 				</div>
-				<div className="flex flex-col gap-4 my-12">
+				<div className="flex flex-col gap-4 my-12 text-white">
 					<h1 className="text-center text-purple-500">Evening</h1>
 					<input
 						type="text"
