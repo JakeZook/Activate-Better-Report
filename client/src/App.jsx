@@ -17,6 +17,9 @@ function App() {
 		eveningMaint: "",
 		eveningSO: "",
 		notesForOpen: "",
+		morningLead: "",
+		midLead: "",
+		eveningLead: "",
 	});
 	const [morningPhoto, setMorningPhoto] = useState(null); // For storing uploaded image
 	const [midPhoto, setMidPhoto] = useState(null); // For storing uploaded image
@@ -63,6 +66,9 @@ function App() {
 		formDataToSend.append("morningPhoto", morningPhoto);
 		formDataToSend.append("midPhoto", midPhoto);
 		formDataToSend.append("eveningPhoto", eveningPhoto);
+		formDataToSend.append("morningLead", formData.morningLead);
+		formDataToSend.append("midLead", formData.midLead);
+		formDataToSend.append("eveningLead", formData.eveningLead);
 
 		try {
 			const response = await axios.post("/send-email", formDataToSend, {
@@ -84,6 +90,9 @@ function App() {
 				eveningMaint: "",
 				eveningSO: "",
 				notesForOpen: "",
+				morningLead: "",
+				midLead: "",
+				eveningLead: "",
 			});
 
 			setMorningPhoto(null);
@@ -111,6 +120,25 @@ function App() {
 				<div className="flex flex-col gap-4 my-12 text-white">
 					<h1 className="text-center text-green-500">Morning</h1>
 					<div className="flex flex-col gap-4">
+						<label
+							for="morningLead"
+							class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+						>
+							Select Lead
+						</label>
+						<select
+							id="morningLead"
+							onChange={handleChange}
+							name="morningLead"
+							value={formData.morningLead}
+							class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+						>
+							<option selected>Lead on Shift</option>
+							<option value="Jake">Jake</option>
+							<option value="Helen">Helen</option>
+							<option value="Hannah">Hannah</option>
+							<option value="Jorge">Jorge</option>
+						</select>
 						<textarea
 							type="text"
 							name="morningGen"
@@ -165,6 +193,27 @@ function App() {
 				</div>
 				<div className="flex flex-col gap-4 my-12 text-white">
 					<h1 className="text-center text-yellow-500">Mid</h1>
+					<div className="flex flex-col gap-4">
+						<label
+							for="midLead"
+							class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+						>
+							Select Lead
+						</label>
+						<select
+							id="midLead"
+							onChange={handleChange}
+							name="midLead"
+							value={formData.midLead}
+							class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+						>
+							<option selected>Lead on Shift</option>
+							<option value="Jake">Jake</option>
+							<option value="Helen">Helen</option>
+							<option value="Hannah">Hannah</option>
+							<option value="Jorge">Jorge</option>
+						</select>
+					</div>
 					<textarea
 						type="text"
 						name="midGen"
@@ -217,6 +266,27 @@ function App() {
 				</div>
 				<div className="flex flex-col gap-4 my-12 text-white">
 					<h1 className="text-center text-purple-500">Evening</h1>
+					<div className="flex flex-col gap-4">
+						<label
+							for="eveningLead"
+							class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+						>
+							Select Lead
+						</label>
+						<select
+							id="eveningLead"
+							onChange={handleChange}
+							name="eveningLead"
+							value={formData.eveningLead}
+							class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+						>
+							<option selected>Lead on Shift</option>
+							<option value="Jake">Jake</option>
+							<option value="Helen">Helen</option>
+							<option value="Hannah">Hannah</option>
+							<option value="Jorge">Jorge</option>
+						</select>
+					</div>
 					<textarea
 						type="text"
 						name="eveningGen"
