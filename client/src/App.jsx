@@ -101,7 +101,7 @@ function App() {
 	};
 
 	return (
-		<>
+		<div className="w-full">
 			<div>
 				<h1 className="text-center text-2xl font-bold my-10 text-cyan-500">
 					Daily Shift Report
@@ -114,23 +114,23 @@ function App() {
 				<div className="flex flex-col gap-4 my-12 text-white">
 					<h1 className="text-center text-green-500">Morning</h1>
 					<div className="flex flex-col gap-4">
-						<input
+						<textarea
 							type="text"
 							name="morningGen"
 							placeholder="General"
 							value={formData.morningGen}
 							onChange={handleChange}
 							required
-							className="border p-4 rounded w-full max-w-xl text-lg"
+							className="border p-4 rounded w-full max-w-xl text-lg h-40"
 						/>
-						<input
+						<textarea
 							type="text"
 							name="morningCustomer"
 							placeholder="Customers"
 							value={formData.morningCustomer}
 							onChange={handleChange}
 							required
-							className="border p-4 rounded w-full max-w-xl text-lg"
+							className="border p-4 rounded w-full max-w-xl text-lg h-40"
 						/>
 						<textarea
 							name="morningMaint"
@@ -160,23 +160,23 @@ function App() {
 				</div>
 				<div className="flex flex-col gap-4 my-12 text-white">
 					<h1 className="text-center text-yellow-500">Mid</h1>
-					<input
+					<textarea
 						type="text"
 						name="midGen"
 						placeholder="General"
 						value={formData.midGen}
 						onChange={handleChange}
 						required
-						className="border p-4 rounded w-full max-w-xl text-lg"
+						className="border p-4 rounded w-full max-w-xl text-lg h-40"
 					/>
-					<input
+					<textarea
 						type="text"
 						name="midCustomer"
 						placeholder="Customers"
 						value={formData.midCustomer}
 						onChange={handleChange}
 						required
-						className="border p-4 rounded w-full max-w-xl text-lg"
+						className="border p-4 rounded w-full max-w-xl text-lg h-40"
 					/>
 					<textarea
 						name="midMaint"
@@ -204,23 +204,23 @@ function App() {
 				</div>
 				<div className="flex flex-col gap-4 my-12 text-white">
 					<h1 className="text-center text-purple-500">Evening</h1>
-					<input
+					<textarea
 						type="text"
 						name="eveningGen"
 						placeholder="General"
 						value={formData.eveningGen}
 						onChange={handleChange}
 						required
-						className="border p-4 rounded w-full max-w-xl text-lg"
+						className="border p-4 rounded w-full max-w-xl text-lg h-40"
 					/>
-					<input
+					<textarea
 						type="text"
 						name="eveningCustomer"
 						placeholder="Customers"
 						value={formData.eveningCustomer}
 						onChange={handleChange}
 						required
-						className="border p-4 rounded w-full max-w-xl text-lg"
+						className="border p-4 rounded w-full max-w-xl text-lg h-40"
 					/>
 					<textarea
 						name="eveningMaint"
@@ -269,7 +269,7 @@ function App() {
 					{loading ? "Sending..." : "Send Message"}
 				</button>
 			</form>
-		</>
+		</div>
 	);
 }
 
