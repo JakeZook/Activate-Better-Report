@@ -121,7 +121,7 @@ function App() {
 							value={formData.morningGen}
 							onChange={handleChange}
 							required
-							className="border p-2 rounded"
+							className="border p-4 rounded w-full max-w-xl text-lg"
 						/>
 						<input
 							type="text"
@@ -130,7 +130,7 @@ function App() {
 							value={formData.morningCustomer}
 							onChange={handleChange}
 							required
-							className="border p-2 rounded"
+							className="border p-4 rounded w-full max-w-xl text-lg"
 						/>
 						<textarea
 							name="morningMaint"
@@ -138,7 +138,7 @@ function App() {
 							value={formData.morningMaint}
 							onChange={handleChange}
 							required
-							className="border p-2 rounded h-24"
+							className="border p-4 rounded w-full max-w-xl text-lg h-40"
 						></textarea>
 						<textarea
 							name="morningSO"
@@ -146,14 +146,15 @@ function App() {
 							value={formData.morningSO}
 							onChange={handleChange}
 							required
-							className="border p-2 rounded h-24"
+							className="border p-4 rounded w-full max-w-xl text-lg h-40"
 						></textarea>
+						<label className="text-lg text-cyan-500">AM Photo:</label>
 						<input
 							type="file"
 							accept="image/*"
 							onChange={handleMorningPhotoChange}
 							required
-							className="border p-2 rounded"
+							className="border p-4 rounded w-full max-w-xl text-lg"
 						/>
 					</div>
 				</div>
@@ -166,7 +167,7 @@ function App() {
 						value={formData.midGen}
 						onChange={handleChange}
 						required
-						className="border p-2 rounded"
+						className="border p-4 rounded w-full max-w-xl text-lg"
 					/>
 					<input
 						type="text"
@@ -175,7 +176,7 @@ function App() {
 						value={formData.midCustomer}
 						onChange={handleChange}
 						required
-						className="border p-2 rounded"
+						className="border p-4 rounded w-full max-w-xl text-lg"
 					/>
 					<textarea
 						name="midMaint"
@@ -183,7 +184,7 @@ function App() {
 						value={formData.midMaint}
 						onChange={handleChange}
 						required
-						className="border p-2 rounded h-24"
+						className="border p-4 rounded w-full max-w-xl text-lg h-40"
 					></textarea>
 					<textarea
 						name="midSO"
@@ -191,14 +192,14 @@ function App() {
 						value={formData.midSO}
 						onChange={handleChange}
 						required
-						className="border p-2 rounded h-24"
+						className="border p-4 rounded w-full max-w-xl text-lg h-40"
 					></textarea>
 					<input
 						type="file"
 						accept="image/*"
 						onChange={handleMidPhotoChange}
 						required
-						className="border p-2 rounded"
+						className="border p-4 rounded w-full max-w-xl text-lg"
 					/>
 				</div>
 				<div className="flex flex-col gap-4 my-12">
@@ -210,7 +211,7 @@ function App() {
 						value={formData.eveningGen}
 						onChange={handleChange}
 						required
-						className="border p-2 rounded"
+						className="border p-4 rounded w-full max-w-xl text-lg"
 					/>
 					<input
 						type="text"
@@ -219,7 +220,7 @@ function App() {
 						value={formData.eveningCustomer}
 						onChange={handleChange}
 						required
-						className="border p-2 rounded"
+						className="border p-4 rounded w-full max-w-xl text-lg"
 					/>
 					<textarea
 						name="eveningMaint"
@@ -227,7 +228,7 @@ function App() {
 						value={formData.eveningMaint}
 						onChange={handleChange}
 						required
-						className="border p-2 rounded h-24"
+						className="border p-4 rounded w-full max-w-xl text-lg h-40"
 					></textarea>
 					<textarea
 						name="eveningSO"
@@ -235,27 +236,27 @@ function App() {
 						value={formData.eveningSO}
 						onChange={handleChange}
 						required
-						className="border p-2 rounded h-24"
+						className="border p-4 rounded w-full max-w-xl text-lg h-40"
 					></textarea>
 					<textarea
 						name="notesForOpen"
 						placeholder="Notes for Open"
 						value={formData.notesForOpen}
 						onChange={handleChange}
-						className="border p-2 rounded h-24"
+						className="border p-4 rounded w-full max-w-xl text-lg h-40"
 					></textarea>
 					<input
 						type="file"
 						accept="image/*"
 						onChange={handleEveningPhotoChange}
 						required
-						className="border p-2 rounded"
+						className="border p-4 rounded w-full max-w-xl text-lg"
 					/>
 				</div>
 				{responseMsg && (
 					<p
 						className={`text-center ${
-							error ? "text-green-500" : "text-red-500"
+							responseMsg == "Email sent!" ? "text-green-500" : "text-red-500"
 						}`}
 					>
 						{responseMsg}

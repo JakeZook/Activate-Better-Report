@@ -82,7 +82,7 @@ app.post(
 			let mailOptions = {
 				from: "jake.zook@playactivate.com",
 				to: "jake.zook@playactivate.com",
-				cc: "westminster@playactivate.com",
+				cc: "westminster@playactivate.com, dominic.harlowlawrence@playactivate.com, jace.chang@playactivate.com",
 				subject: `Westminster Daily Report ${date}`,
 				html: `
 				<h2 style="color: blue; text: 4rem;">Daily Report - ${date}</h2>
