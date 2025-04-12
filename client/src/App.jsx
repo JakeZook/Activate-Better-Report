@@ -21,29 +21,30 @@ function App() {
 	const [morningPhoto, setMorningPhoto] = useState(null); // For storing uploaded image
 	const [midPhoto, setMidPhoto] = useState(null); // For storing uploaded image
 	const [eveningPhoto, setEveningPhoto] = useState(null); // For storing uploaded image
+
 	const [loading, setLoading] = useState(false);
 	const [responseMsg, setResponseMsg] = useState("");
-	const [error, setError] = useState(null); // For storing error messages
-
 	const handleChange = (e) => {
 		setFormData({ ...formData, [e.target.name]: e.target.value });
 	};
 
 	const handleMorningPhotoChange = (e) => {
 		setMorningPhoto(e.target.files[0]);
+		URL.createObjectURL(e.target.files[0]);
 	};
 	const handleMidPhotoChange = (e) => {
 		setMidPhoto(e.target.files[0]);
+		URL.createObjectURL(e.target.files[0]);
 	};
 	const handleEveningPhotoChange = (e) => {
 		setEveningPhoto(e.target.files[0]);
+		URL.createObjectURL(e.target.files[0]);
 	};
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		setLoading(true);
 		setResponseMsg("");
-		setError(null);
 
 		const formDataToSend = new FormData();
 		formDataToSend.append("morningGen", formData.morningGen);
@@ -68,10 +69,6 @@ function App() {
 				headers: { "Content-Type": "multipart/form-data" }, // Required for file uploads
 			});
 			setResponseMsg(response.data.message);
-
-			if (response.data.success) {
-				setError(false);
-			} else setError(true);
 
 			setFormData({
 				morningGen: "",
@@ -101,7 +98,7 @@ function App() {
 	};
 
 	return (
-		<div className="w-full">
+		<div className="flex flex-col items-center justify-center min-h-screen">
 			<div>
 				<h1 className="text-center text-2xl font-bold my-10 text-cyan-500">
 					Daily Shift Report
@@ -121,6 +118,7 @@ function App() {
 							value={formData.morningGen}
 							onChange={handleChange}
 							required
+							cols={100}
 							className="border p-4 rounded w-full max-w-xl text-lg h-40"
 						/>
 						<textarea
@@ -156,6 +154,13 @@ function App() {
 							required
 							className="border p-4 rounded w-full max-w-xl text-lg"
 						/>
+						{morningPhoto && (
+							<img
+								src={URL.createObjectURL(morningPhoto)}
+								alt="Morning Preview"
+								style={{ marginTop: "10px", maxHeight: "300px" }}
+							/>
+						)}
 					</div>
 				</div>
 				<div className="flex flex-col gap-4 my-12 text-white">
@@ -167,6 +172,7 @@ function App() {
 						value={formData.midGen}
 						onChange={handleChange}
 						required
+						cols={100}
 						className="border p-4 rounded w-full max-w-xl text-lg h-40"
 					/>
 					<textarea
@@ -201,6 +207,13 @@ function App() {
 						required
 						className="border p-4 rounded w-full max-w-xl text-lg"
 					/>
+					{midPhoto && (
+						<img
+							src={URL.createObjectURL(midPhoto)}
+							alt="Mid Preview"
+							style={{ marginTop: "10px", maxHeight: "300px" }}
+						/>
+					)}
 				</div>
 				<div className="flex flex-col gap-4 my-12 text-white">
 					<h1 className="text-center text-purple-500">Evening</h1>
@@ -211,6 +224,7 @@ function App() {
 						value={formData.eveningGen}
 						onChange={handleChange}
 						required
+						cols={100}
 						className="border p-4 rounded w-full max-w-xl text-lg h-40"
 					/>
 					<textarea
@@ -252,6 +266,13 @@ function App() {
 						required
 						className="border p-4 rounded w-full max-w-xl text-lg"
 					/>
+					{eveningPhoto && (
+						<img
+							src={URL.createObjectURL(eveningPhoto)}
+							alt="Evening Preview"
+							style={{ marginTop: "10px", maxHeight: "300px" }}
+						/>
+					)}
 				</div>
 				{responseMsg && (
 					<p
